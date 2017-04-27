@@ -1,0 +1,6 @@
+http://api.bt-hypercat.com,sensors,86a25d4e-25fc-4ebf-a00d-0a603858c7e1,datastreams,0,datapoints,{},Anns_carpark_stream
+http://api.bt-hypercat.com,sensors,4805f62e-0c28-4629-b96d-a94ba32ea992,datastreams,0,datapoints,{},Anns_heathrow_stream
+http://api.bt-hypercat.com,sensors,852fd878-9b82-4f5a-b69f-35e923713078,datastreams,0,datapoints,{},Anns_temperature_stream
+http://api.bt-hypercat.com,sensors,852fd878-9b82-4f5a-b69f-35e923713078,datastreams,1,datapoints,{},Anns_precipitation_stream
+http://api.bt-hypercat.com,sensors,852fd878-9b82-4f5a-b69f-35e923713078,datastreams,2,datapoints,{},Anns_windspeed_stream
+http://api.bt-hypercat.com,sensors,31e909b3-41f5-46e0-984f-fbe722250f61,datastreams,1,datapoints,{},Anns_traffic_stream
