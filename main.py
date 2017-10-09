@@ -21,8 +21,8 @@ triangulum_sources_dir = 'osisoft_pi_sources'
 triangulum_requests_file = 'list_osisoft-pi_requests.csv'
 input_dir = 'data_sources'
 csv_output_dir = 'output'
-csv_output_file_bt = 'bt_latest_output.csv'
-csv_output_file_tri = 'triangulum_latest_output.csv'
+csv_output_file_prefix_bt = 'bt_'
+csv_output_file_prefix_tri = 'triangulum_'
 
 
 
@@ -131,14 +131,15 @@ def main():
                             except Exception as err:
                                 print("Error populating influx-db: " + str(err))
                         else:
+                            file_spec = os.path.join(output_dir,
+                                                     csv_output_file_prefix_bt + request.users_feed_name + '.json')
                             try:
-                                with open(os.path.join(output_dir, csv_output_file_bt), 'w+') as csv_file:
-                                    json.dump(bt_hub_response, csv_file)
-                                print("csv file write successful: To file: " +
-                                      csv_output_file_bt + " in " + output_dir)
+                                with open(file_spec, 'w+') as csv_file:
+                                    csv_file.write(bt_hub_response['content'])
+                                    #json.dump(bt_hub_response, csv_file)
+                                print("csv file write successful: To file: " + file_spec)
                             except Exception as err:
-                                print('Unable to write to ' + csv_output_file_bt + ' in ' +
-                                      output_dir + '. ' + str(err))
+                                print('Unable to write to ' + file_spec + '. ' + str(err))
 
 
 
@@ -173,14 +174,14 @@ def main():
                             except Exception as err:
                                 print("Error populating influx-db: " + str(err))
                         else:
+                            file_spec = os.path.join(output_dir,
+                                                     csv_output_file_prefix_tri + request.users_feed_name + '.json')
                             try:
-                                with open(os.path.join(output_dir, csv_output_file_tri), 'w+') as csv_file:
-                                    csv_file.write(json.dumps(pi_hub_response))
-                                print("csv file write successful: To file: " +
-                                      csv_output_file_tri + " in " + output_dir)
+                                with open(file_spec, 'w+') as csv_file:
+                                    csv_file.write(pi_hub_response['content'])
+                                print("csv file write successful: To file: " + file_spec)
                             except Exception as err:
-                                print('Unable to write to ' + csv_output_file_tri + ' in ' +
-                                      output_dir  + '. ' + str(err))
+                                print('Unable to write to ' + file_spec  + '. ' + str(err))
                                 raise
 
                     else:
