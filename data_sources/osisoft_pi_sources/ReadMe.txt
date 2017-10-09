@@ -1,4 +1,4 @@
-***** list_osisoft-pi_streams.csv format: *****
+***** list_osisoft-pi_requests.csv format: *****
 
 [core api url], [data type*], [params], [request type**], [user's feed name]
 
