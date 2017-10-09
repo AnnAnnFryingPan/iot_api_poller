@@ -39,7 +39,7 @@ def main():
     except:
         print("Error reading command line arguments. " + str(sys.argv))
         print("1. input/output directory path (string)")
-        print("2. [influx database name] or 'csv'")
+        print("2. [influx database name] or 'file'")
         print("3. polling interval seconds (float)")
         print("4. Optional: Get new results only (bool) [y or n] - Default = y")
         sys.exit(0)
@@ -102,7 +102,7 @@ def main():
         print("")
         print("***** No. of streams to be processed: " + str(len(api_requests)) + " *****")
 
-        if(str(influxdb_db_name).strip().lower() != 'csv'):
+        if(str(influxdb_db_name).strip().lower() != 'file'):
             influx_db = influxdb_connection.Influxdb_connection(influxdb_db_name)
 
         for request in api_requests.requests:
