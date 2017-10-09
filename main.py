@@ -33,7 +33,7 @@ def main():
             influxdb_db_name = sys.argv[2]          #BT_Feeds_Test_3
             polling_interval = float(sys.argv[3])   #5.0
             try:
-                get_latest = sys.argv[4]          #f or t
+                get_latest = sys.argv[4]          #y or n
             except:
                 get_latest = ''
     except:
@@ -49,10 +49,11 @@ def main():
     if(str(influxdb_db_name).strip() == ''):
         print("Error reading second parameter: [influx database name] or 'csv'" )
 
-    if(str(get_latest).strip() == '' or str(get_latest).strip() == 'y'):
-        bool_get_latest = True
-    elif(str(get_latest).strip() == 'n'):
+    elif (str(get_latest).strip() == 'n'):
         bool_get_latest = False
+    else: #elif(str(get_latest).strip() == '' or str(get_latest).strip() == 'y'):
+        bool_get_latest = True
+
 
 
     api_requests = Request_info_fetch_list()
@@ -92,7 +93,7 @@ def main():
         sys.exit(0)
 
 
-    influxdb_connection = None
+    influx_db = None
 
     running = True
     while running:
@@ -102,7 +103,7 @@ def main():
         print("***** No. of streams to be processed: " + str(len(api_requests)) + " *****")
 
         if(str(influxdb_db_name).strip().lower() != 'csv'):
-            influx_db_connection = influxdb_connection.Influxdb_connection(influxdb_db_name)
+            influx_db = influxdb_connection.Influxdb_connection(influxdb_db_name)
 
         for request in api_requests.requests:
 
@@ -119,13 +120,13 @@ def main():
                             len(bt_hub_response['content'])) + " returned rows from " + request.users_feed_name)
                         print(bt_hub_response['content'])
 
-                        if(influxdb_connection != None):
+                        if(influx_db != None):
                             try:
-                                influx_db_connection.import_hypercat_response_json(bt_hub_response['content'],
+                                influx_db.import_hypercat_response_json(bt_hub_response['content'],
                                                                                    request.users_feed_name)
                                 print("influxDb call successful: To table: " +
                                       request.users_feed_name + " in " + influxdb_db_name)
-                                print(influx_db_connection.query_database(
+                                print(influx_db.query_database(
                                     'select value from ' + request.users_feed_name + ';'))
                             except Exception as err:
                                 print("Error populating influx-db: " + str(err))
@@ -133,6 +134,8 @@ def main():
                             try:
                                 with open(os.path.join(output_dir, csv_output_file_bt), 'w+') as csv_file:
                                     json.dump(bt_hub_response, csv_file)
+                                print("csv file write successful: To file: " +
+                                      csv_output_file_bt + " in " + output_dir)
                             except Exception as err:
                                 print('Unable to write to ' + csv_output_file_bt + ' in ' +
                                       output_dir + '. ' + str(err))
@@ -158,14 +161,14 @@ def main():
                         print("Pi-Hub call successful. " + str(len(json_content['Items'])) \
                         + " returned rows from " + request.users_feed_name)
 
-                        if(influxdb_connection != None):
+                        if(influx_db != None):
                             try:
-                                influx_db_connection.import_pi_response_json(pi_hub_response['content'],
+                                influx_db.import_pi_response_json(pi_hub_response['content'],
                                                                              request.users_feed_name)
                                 print("influxDb call successful: To table: " +
                                       request.users_feed_name + " in " + influxdb_db_name)
                                 print('select value from ' + request.users_feed_name + ": " +
-                                      str(influx_db_connection.query_database(
+                                      str(influx_db.query_database(
                                           'select value from ' + request.users_feed_name + ';')))
                             except Exception as err:
                                 print("Error populating influx-db: " + str(err))
@@ -173,6 +176,8 @@ def main():
                             try:
                                 with open(os.path.join(output_dir, csv_output_file_tri), 'w+') as csv_file:
                                     csv_file.write(json.dumps(pi_hub_response))
+                                print("csv file write successful: To file: " +
+                                      csv_output_file_tri + " in " + output_dir)
                             except Exception as err:
                                 print('Unable to write to ' + csv_output_file_tri + ' in ' +
                                       output_dir  + '. ' + str(err))
