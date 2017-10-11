@@ -7,7 +7,13 @@ import json
 sys.path.insert(0, '../data_hub_call')
 sys.path.insert(0, '../influxdb_connection')
 
-import influxdb_connection
+try:
+    import influxdb_connection
+    force_file = False
+except ImportError:
+    force_file = True
+
+
 from request_info_fetch_list import Request_info_fetch_list
 from data_hub_call_bt import Data_hub_call_bt
 from data_hub_call_osisoft_pi import Data_hub_call_osisoft_pi
@@ -39,15 +45,23 @@ def main():
     except:
         print("Error reading command line arguments. " + str(sys.argv))
         print("1. input/output directory path (string)")
-        print("2. [influx database name] or 'file'")
+        str_force_instruction = ''
+        if(force_file):
+            str_force_instruction = \
+                'Warning: You do not have the influxdb_connection library installed, so this parameter will be ' \
+                    + 'automatically changed to "file".'
+        print("2. [influx database name] or 'file'. " + str_force_instruction)
         print("3. polling interval seconds (float)")
         print("4. Optional: Get new results only (bool) [y or n] - Default = y")
         sys.exit(0)
 
     if(str(home_dir).strip() == ''):
         print('Error reading first parameter: input/output directory (string)')
-    if(str(influxdb_db_name).strip() == ''):
-        print("Error reading second parameter: [influx database name] or 'csv'" )
+
+    if(force_file):
+        influxdb_db_name = 'file'
+    elif(str(influxdb_db_name).strip() == ''):
+        print("Error reading second parameter: [influx database name] or 'file'" )
 
     elif (str(get_latest).strip() == 'n'):
         bool_get_latest = False
@@ -112,13 +126,12 @@ def main():
                 try:
                     bt_hub = Data_hub_call_bt(request)
                     cur_params = request.params
-
                     bt_hub_response = bt_hub.call_api_fetch(cur_params, get_latest_only=bool_get_latest)
-
+                    print('BT hub response: ' + str(bt_hub_response))
                     if (bt_hub_response['ok']):
                         print("BT-Hub call successful. " + str(
-                            len(bt_hub_response['content'])) + " returned rows from " + request.users_feed_name)
-                        print(bt_hub_response['content'])
+                            str(bt_hub_response['returned_matches'])) + " returned rows from " + request.users_feed_name)
+                        #print(bt_hub_response['content'])
 
                         if(influx_db != None):
                             try:
@@ -141,11 +154,9 @@ def main():
                             except Exception as err:
                                 print('Unable to write to ' + file_spec + '. ' + str(err))
 
-
-
                     else:
                         print("Error: call to hub: " + request.api_core_url + " failed with status code: " + \
-                               bt_hub_response.reason)
+                               bt_hub_response['reason'])
 
                 except Exception as err:
                     print("Error calling Hub: " + request.api_core_url + ". " + str(err))
@@ -159,8 +170,8 @@ def main():
                     print('Pi hub response: ' + str(pi_hub_response))
                     if (pi_hub_response['ok']):
                         json_content = json.loads(pi_hub_response['content'])
-                        print("Pi-Hub call successful. " + str(len(json_content['Items'])) \
-                        + " returned rows from " + request.users_feed_name)
+                        print("Pi-Hub call successful. " + str(
+                            str(pi_hub_response['returned_matches'])) + " returned rows from " + request.users_feed_name)
 
                         if(influx_db != None):
                             try:
@@ -182,11 +193,10 @@ def main():
                                 print("csv file write successful: To file: " + file_spec)
                             except Exception as err:
                                 print('Unable to write to ' + file_spec  + '. ' + str(err))
-                                raise
 
                     else:
                         print("Error: call to hub: " + request.api_core_url + " failed with status code:  " + \
-                              pi_hub_response.reason)
+                              pi_hub_response['reason'])
 
                     #print(pi_hub_response)
                 except Exception as err:
