@@ -2,7 +2,6 @@ import time
 from tendo import singleton
 import sys
 import os
-import json
 
 sys.path.insert(0, '../data_hub_call')
 sys.path.insert(0, '../influxdb_connection')
@@ -15,7 +14,7 @@ except ImportError:
 
 
 from request_info_fetch_list import Request_info_fetch_list
-from data_hub_call_bt import Data_hub_call_bt
+from data_hub_call_restful_bt import Data_hub_call_restful_bt
 from data_hub_call_osisoft_pi import Data_hub_call_osisoft_pi
 
 me = singleton.SingleInstance() # will sys.exit(-1) if other instance is running
@@ -122,9 +121,9 @@ def main():
         for request in api_requests.requests:
 
             # poll API
-            if(request.api_core_url == Data_hub_call_bt.core_URL):
+            if(request.api_core_url == Data_hub_call_restful_bt.core_URL):
                 try:
-                    bt_hub = Data_hub_call_bt(request)
+                    bt_hub = Data_hub_call_restful_bt(request)
                     cur_params = request.params
                     bt_hub_response = bt_hub.call_api_fetch(cur_params, get_latest_only=bool_get_latest)
                     print('BT hub response: ' + str(bt_hub_response))
@@ -166,10 +165,9 @@ def main():
             elif(request.api_core_url == Data_hub_call_osisoft_pi.core_URL):
                 try:
                     pi_hub = Data_hub_call_osisoft_pi(request)
-                    pi_hub_response = pi_hub.call_api_fetch()
+                    pi_hub_response = pi_hub.call_api_fetch(bool_get_latest)
                     print('Pi hub response: ' + str(pi_hub_response))
                     if (pi_hub_response['ok']):
-                        json_content = json.loads(pi_hub_response['content'])
                         print("Pi-Hub call successful. " + str(
                             str(pi_hub_response['returned_matches'])) + " returned rows from " + request.users_feed_name)
 
