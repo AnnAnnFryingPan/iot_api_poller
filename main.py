@@ -2,7 +2,6 @@ import time
 from tendo import singleton
 import sys
 import os
-from dateutil.parser import parse
 
 sys.path.insert(0, '../data_hub_call')
 sys.path.insert(0, '../influxdb_connection')
