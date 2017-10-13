@@ -2,6 +2,7 @@ import time
 from tendo import singleton
 import sys
 import os
+from dateutil.parser import parse
 
 sys.path.insert(0, '../data_hub_call')
 sys.path.insert(0, '../influxdb_connection')
@@ -146,8 +147,8 @@ def main():
                             file_spec = os.path.join(output_dir,
                                                      csv_output_file_prefix_bt + request.users_feed_name + '.json')
                             try:
-                                with open(file_spec, 'w+') as csv_file:
-                                    csv_file.write(bt_hub_response['content'])
+                                with open(file_spec, 'a+') as csv_file:
+                                    csv_file.write(bt_hub_response['content'] + '\n')
                                     #json.dump(bt_hub_response, csv_file)
                                 print("csv file write successful: To file: " + file_spec)
                             except Exception as err:
@@ -186,8 +187,8 @@ def main():
                             file_spec = os.path.join(output_dir,
                                                      csv_output_file_prefix_tri + request.users_feed_name + '.json')
                             try:
-                                with open(file_spec, 'w+') as csv_file:
-                                    csv_file.write(pi_hub_response['content'])
+                                with open(file_spec, 'a+') as csv_file:
+                                    csv_file.write(pi_hub_response['content'] + '\n')
                                 print("csv file write successful: To file: " + file_spec)
                             except Exception as err:
                                 print('Unable to write to ' + file_spec  + '. ' + str(err))
