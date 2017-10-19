@@ -1,3 +1,3 @@
-http://api.bt-hypercat.com,sensors,4152be42-c0f3-41a6-86a6-a92d5da9c15d,datastreams,0,datapoints,{},Manchester_Parking_Data_Arena
-http://api.bt-hypercat.com,sensors,c3b1bdcc-1d0f-4aba-bf96-0db3c3f7271d,datastreams,0,datapoints,{},Manchester_Parking_Data_Spinningfields
+http://api.bt-hypercat.com,sensors,4152be42-c0f3-41a6-86a6-a92d5da9c15d,datastreams,0,datapoints,{},Manchester_Parking_Data_Arena, {"longitude":90.9, "latitude":91.24, "tagNames":"car park|spaces", "unitText":"No of free spaces"}
+http://api.bt-hypercat.com,sensors,c3b1bdcc-1d0f-4aba-bf96-0db3c3f7271d,datastreams,0,datapoints,{},Manchester_Parking_Data_Spinningfields, {"longitude":92.485, "latitude":93.109, "tagNames":"car park|spaces", "unitText":"No of free spaces"}
 http://api.bt-hypercat.com,sensors,4805f62e-0c28-4629-b96d-a94ba32ea992,datastreams,0,datapoints,{},Manchester_Parking_Data_Central

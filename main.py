@@ -62,11 +62,10 @@ def main():
     elif(str(influxdb_db_name).strip() == ''):
         print("Error reading second parameter: [influx database name] or 'file'" )
 
-    if (str(get_latest).strip() == 'n'):
+    elif (str(get_latest).strip() == 'n'):
         bool_get_latest = False
     else: #elif(str(get_latest).strip() == '' or str(get_latest).strip() == 'y'):
         bool_get_latest = True
-
 
 
     api_requests = Request_info_fetch_list()
@@ -134,14 +133,23 @@ def main():
 
                         if(influx_db != None):
                             try:
-                                influx_db.import_hypercat_response_json(bt_hub_response['content'],
-                                                                                   request.users_feed_name)
+                                #longitude=None, latitude=None, tagNames=[], unitText=''
+                                influx_db.import_hypercat_response_json (
+                                        bt_hub_response['content'],
+                                        request.users_feed_name,
+                                        request.feed_info)
                                 print("influxDb call successful: To table: " +
                                       request.users_feed_name + " in " + influxdb_db_name)
-                                print(influx_db.query_database(
-                                    'select value from ' + request.users_feed_name + ';'))
                             except Exception as err:
                                 print("Error populating influx-db: " + str(err))
+                            else:
+                                try:
+                                    print('select * from ' + request.users_feed_name + ": " +
+                                          str(influx_db.query_database(
+                                        'select * from ' + request.users_feed_name + ';')))
+                                except Exception as err:
+                                    print("Error reading new data from influx-db.")
+
                         else:
                             file_spec = os.path.join(output_dir,
                                                      csv_output_file_prefix_bt + request.users_feed_name + '.json')
@@ -173,15 +181,22 @@ def main():
 
                         if(influx_db != None):
                             try:
-                                influx_db.import_pi_response_json(pi_hub_response['content'],
-                                                                             request.users_feed_name)
+                                influx_db.import_pi_response_json(
+                                    pi_hub_response['content'],
+                                    request.users_feed_name,
+                                    request.feed_info)
                                 print("influxDb call successful: To table: " +
                                       request.users_feed_name + " in " + influxdb_db_name)
-                                print('select value from ' + request.users_feed_name + ": " +
-                                      str(influx_db.query_database(
-                                          'select value from ' + request.users_feed_name + ';')))
                             except Exception as err:
                                 print("Error populating influx-db: " + str(err))
+                            else:
+                                try:
+                                    print('select * from ' + request.users_feed_name + ": " +
+                                          str(influx_db.query_database(
+                                              'select * from ' + request.users_feed_name + ';')))
+                                except Exception as err:
+                                    print("Error reading new data from influx-db.")
+
                         else:
                             file_spec = os.path.join(output_dir,
                                                      csv_output_file_prefix_tri + request.users_feed_name + '.json')

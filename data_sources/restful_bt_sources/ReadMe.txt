@@ -1,6 +1,7 @@
 ***** list_restful_bt_requests.csv format: *****
 
-[core_url],[feed_type*],[feed id],[request_type_1**],[datastream ID],[request_type_2***],[params list (Dict)],[user's feed name]
+[core_url],[feed_type*],[feed id],[request_type_1**],[datastream ID],[request_type_2***],[params list (Dict)],[user's feed name], 
+	[feed_info (Optional, json dict): longitude (float), latitude (float), tagNames (string delimited by |), unitText (string)]
 
 * feed_type options:
     events
@@ -23,6 +24,7 @@
 ***** Eg. *****
 
 http://api.bt-hypercat.com,sensors,86a25d4e-25fc-4ebf-a00d-0a603858c7e1,datastreams,0,datapoints,{'limit': '100'},Anns_carpark_stream
+http://api.bt-hypercat.com,sensors,4152be42-c0f3-41a6-86a6-a92d5da9c15d,datastreams,0,datapoints,{},Manchester_Parking_Data_Arena, {"longitude":90.9, "latitude":91.24, "tagNames":"car park|spaces", "unitText":"No of free spaces"}
 
 
 ***** Sample parsing code: *****
@@ -36,3 +38,5 @@ datastream_id = int(list_params[4])
 request_type_2 = Request_type_2[list_params[5]]
 params_list_str = list_params[6]  # {'limit': '100'}
 users_feed_name = list_params[7].rstrip('\n')
+if(len(list_params) > 8):
+	#[Parse the optional parameters using json.loads(...)] ...
