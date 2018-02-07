@@ -134,6 +134,7 @@ def main():
                         if(influx_db != None):
                             try:
                                 #longitude=None, latitude=None, tagNames=[], unitText=''
+                                influx_db.import_hypercat_response_json(
                                 influx_db.import_hypercat_response_json (
                                         bt_hub_response['content'],
                                         request.users_feed_name,
