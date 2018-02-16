@@ -1,3 +1,10 @@
+NOTE: Readme needs updating. New input example:
+{"feed_info": {"href": "http://api.bt-hypercat.com/sensors/feeds/6d568cfb-dfd4-4701-b34d-31026cc54bb9/datastreams/0"}, "user_defined_name": "abc", "stream_params": ["http://api.bt-hypercat.com", "sensors", "6d568cfb-dfd4-4701-b34d-31026cc54bb9", "datastreams", "0", "datapoints", "{}"]}
+
+
+
+Old ReadMe:
+
 ***** list_restful_bt_requests.csv format: *****
 
 [core_url],[feed_type*],[feed id],[request_type_1**],[datastream ID],[request_type_2***],[params list (Dict)],[user's feed name], 
