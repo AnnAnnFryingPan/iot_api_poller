@@ -10,7 +10,7 @@ except ImportError:
     force_file = True
 
 
-me = singleton.SingleInstance() # will sys.exit(-1) if other instance is running
+#me = singleton.SingleInstance() # will sys.exit(-1) if other instance is running
 
 def main():
     try:
@@ -48,8 +48,8 @@ def main():
     else: #elif(str(get_latest).strip() == '' or str(get_latest).strip() == 'y'):
         bool_get_latest = True
 
-    Restful_api_poller(home_dir, influxdb_db_name, polling_interval, get_latest)
-
+    poller = Restful_api_poller(home_dir, influxdb_db_name, polling_interval, get_latest)
+    poller.start()
 
 
 if __name__ == '__main__':
