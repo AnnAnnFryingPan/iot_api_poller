@@ -1,3 +1,6 @@
+NOTE: Readme needs updating. New input example:
+{"feed_info": {"href": "https://130.88.97.137/piwebapi/attributes/A0EXpbRmwnc7kq0OSy1LydJJQ-aUqjTuZ5xGA7ABQVqtCQgei7UMlEY9Vk5IukHtdFcUAVk0tUEktUDAxLkRTLk1BTi5BQy5VS1xUUklBTkdVTFVNXFRSQU5TUE9SVCAmIE1PQklMSVRZXENBUlBBUktTXEFRVUFUSUMgQ0VOVFJFfE9DQ1VQQU5DWQ"}, "user_defined_name": "AQ_Occ", "stream_params": ["https://130.88.97.137/piwebapi", "streams", "A0EXpbRmwnc7kq0OSy1LydJJQ-aUqjTuZ5xGA7ABQVqtCQgei7UMlEY9Vk5IukHtdFcUAVk0tUEktUDAxLkRTLk1BTi5BQy5VS1xUUklBTkdVTFVNXFRSQU5TUE9SVCAmIE1PQklMSVRZXENBUlBBUktTXEFRVUFUSUMgQ0VOVFJFfE9DQ1VQQU5DWQ", "recorded"]}
+
 ***** list_osisoft-pi_requests.csv format: *****
 
 [core api url], [data type*], [params], [request type**], [user's feed name],
