@@ -33,7 +33,6 @@ CSV_OUTPUT_FILE_PREFIX_TRI = 'triangulum_'
 class Restful_api_poller(object):
 
     def __init__(self, home_dir, influxdb_db_name, polling_interval, get_latest):
-        self.api_requests = Request_info_fetch_list()
         self.requests_dir = os.path.join(home_dir, INPUT_DIR)
         self.output_dir = os.path.join(home_dir, CSV_OUTPUT_DIR)
         self.running = False
@@ -42,11 +41,15 @@ class Restful_api_poller(object):
             self.influxdb_db_name = 'file'
         else:
             self.influxdb_db_name = influxdb_db_name
-
         self.polling_interval = polling_interval
         self.get_latest = get_latest
 
+        self.api_requests = None
+
+
+
     def start(self):
+        self.api_requests = Request_info_fetch_list()
 
         try:
             with open(os.path.join(self.requests_dir, RESTFUL_BT_SOURCES_DIR, BT_HUB_CREDENTIALS_FILE)) as f_creds:
@@ -196,3 +199,4 @@ class Restful_api_poller(object):
 
     def stop(self):
         self.running = False
+        self.api_requests = None
