@@ -58,8 +58,7 @@ class Restful_api_poller(object):
                 restful_bt_api_key = list_params[0]
                 restful_bt_username = list_params[1].rstrip('\n')
         except Exception as err:
-            print('Unable to read BT credentials file ' + BT_HUB_CREDENTIALS_FILE + ' file in ' + self.requests_dir +
-                  '. BT streams in ' + RESTFUL_BT_REQUESTS_FILE + ' will be ignored. ' + str(err))
+            print('Unable to read BT credentials file')
         else:
             try:
                 with open(os.path.join(self.requests_dir, RESTFUL_BT_SOURCES_DIR, RESTFUL_BT_REQUESTS_FILE)) as f_requests:
@@ -67,19 +66,17 @@ class Restful_api_poller(object):
                     self.api_requests.append_restful_bt_request_list(restful_bt_username, restful_bt_api_key, api_requests_file)
             except Exception as err:
                 print(
-                    'Unable to read BT streams file ' + RESTFUL_BT_REQUESTS_FILE + ' file in ' + RESTFUL_BT_SOURCES_DIR
-                    + '. ' + str(err))
+                    'Unable to read BT streams file')
 
         try:
             with open(os.path.join(self.requests_dir, TRIANGULUM_SOURCES_DIR, TRIANGULUM_REQUESTS_FILE)) as f_requests:
                 api_requests_file = f_requests.readlines()
                 self.api_requests.append_pi_request_list(api_requests_file)
         except Exception as err:
-            print('Unable to read Triangulum streams file ' + TRIANGULUM_REQUESTS_FILE + ' file in '
-                  + TRIANGULUM_SOURCES_DIR + '. ' + str(err))
+            print('Unable to read Triangulum streams file ')
 
         if (len(self.api_requests) == 0):
-            print('Unable to read any streams data from ' + self.requests_dir + '. Exiting.')
+            print('Unable to read any streams data from input home directory. Exiting.')
             sys.exit(0)
 
         influx_db = None
@@ -137,7 +134,7 @@ class Restful_api_poller(object):
                                         # json.dump(bt_hub_response, csv_file)
                                     print("csv file write successful: To file: " + file_spec)
                                 except Exception as err:
-                                    print('Unable to write to ' + file_spec + '. ' + str(err))
+                                    print('Unable to write to output file: ' + str(err))
 
                         else:
                             print("Error: call to hub: " + request.api_core_url + " failed with status code: " + \
@@ -184,7 +181,7 @@ class Restful_api_poller(object):
                                         csv_file.write(pi_hub_response['content'] + '\n')
                                     print("csv file write successful: To file: " + file_spec)
                                 except Exception as err:
-                                    print('Unable to write to ' + file_spec + '. ' + str(err))
+                                    print('Unable to write to output file .' + str(err))
 
                         else:
                             print("Error: call to hub: " + request.api_core_url + " failed with status code:  " + \
