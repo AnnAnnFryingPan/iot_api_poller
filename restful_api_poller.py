@@ -32,7 +32,7 @@ CSV_OUTPUT_FILE_PREFIX_TRI = 'triangulum_'
 
 class Restful_api_poller(object):
 
-    def __init__(self, home_dir, influxdb_db_name, polling_interval, get_latest):
+    def __init__(self, home_dir, influxdb_db_name, polling_interval, get_latest=True):
         self.requests_dir = os.path.join(home_dir, INPUT_DIR)
         self.output_dir = os.path.join(home_dir, CSV_OUTPUT_DIR)
         self.running = False
