@@ -17,8 +17,6 @@ except ImportError:
     force_file = True
 
 
-sys.path.insert(0, '../data_hub_call')
-
 RESTFUL_BT_SOURCES_DIR = "restful_bt_sources"
 BT_HUB_CREDENTIALS_FILE = 'bt_hub_credentials.csv'
 RESTFUL_BT_REQUESTS_FILE = 'list_restful_bt_requests.csv'
