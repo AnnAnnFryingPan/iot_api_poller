@@ -1,4 +1,3 @@
-from tendo import singleton
 import sys
 
 from restful_api_poller import Restful_api_poller
@@ -9,8 +8,6 @@ try:
 except ImportError:
     force_file = True
 
-
-#me = singleton.SingleInstance() # will sys.exit(-1) if other instance is running
 
 def main():
     try:
