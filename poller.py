@@ -7,7 +7,7 @@ class Poller(object):
     def __init__(self, polling_interval, get_latest_only=True):
         self.running = False
         self.polling_interval = polling_interval
-        self.get_latest = get_latest_only
+        self.get_latest_only = get_latest_only
 
     @abstractmethod
     def do_work(self):

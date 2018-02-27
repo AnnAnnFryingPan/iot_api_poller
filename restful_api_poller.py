@@ -30,8 +30,8 @@ CSV_OUTPUT_FILE_PREFIX_TRI = 'triangulum_'
 
 class Restful_api_poller(Poller):
 
-    def __init__(self, home_dir, influxdb_db_name, polling_interval, get_latest=True):
-        super(Restful_api_poller, self).__init__(polling_interval, get_latest)
+    def __init__(self, home_dir, influxdb_db_name, polling_interval, get_latest_only=True):
+        super(Restful_api_poller, self).__init__(polling_interval, get_latest_only)
 
         self.requests_dir = os.path.join(home_dir, INPUT_DIR)
         self.output_dir = os.path.join(home_dir, CSV_OUTPUT_DIR)
@@ -92,7 +92,7 @@ class Restful_api_poller(Poller):
                 try:
                     bt_hub = Data_hub_call_restful_bt(request)
                     cur_params = request.params
-                    bt_hub_response = bt_hub.call_api_fetch(cur_params, get_latest_only=self.get_latest)
+                    bt_hub_response = bt_hub.call_api_fetch(cur_params, get_latest_only=self.get_latest_only)
                     print('BT hub response: ' + str(bt_hub_response))
                     if (bt_hub_response['ok']):
                         print("BT-Hub call successful. " + str(
@@ -142,7 +142,7 @@ class Restful_api_poller(Poller):
             elif (request.api_core_url == Data_hub_call_osisoft_pi.core_URL):
                 try:
                     pi_hub = Data_hub_call_osisoft_pi(request)
-                    pi_hub_response = pi_hub.call_api_fetch(self.get_latest)
+                    pi_hub_response = pi_hub.call_api_fetch(self.get_latest_only)
                     print('Pi hub response: ' + str(pi_hub_response))
                     if (pi_hub_response['ok']):
                         print("Pi-Hub call successful. " + str(
