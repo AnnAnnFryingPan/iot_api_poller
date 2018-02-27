@@ -22,7 +22,7 @@ class Poller(object):
             self.do_work()
 
             work_duration = time.clock() - start
-            time.sleep(self.polling_interval - work_duration)
+            time.sleep(max(0, self.polling_interval - work_duration))
 
     def stop(self):
         self.running = False

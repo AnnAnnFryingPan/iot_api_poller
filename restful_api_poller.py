@@ -66,8 +66,7 @@ class Restful_api_poller(Poller):
                                                                      api_requests_file)
             except Exception as err:
                 print('Unable to read BT streams file: ' + os.path.join(self.requests_dir, RESTFUL_BT_SOURCES_DIR,
-                                                                        RESTFUL_BT_REQUESTS_FILE))
-
+                                                                        RESTFUL_BT_REQUESTS_FILE) + str(err))
         try:
             with open(os.path.join(self.requests_dir, TRIANGULUM_SOURCES_DIR,
                                    TRIANGULUM_REQUESTS_FILE)) as f_requests:
@@ -101,10 +100,10 @@ class Restful_api_poller(Poller):
                                     'returned_matches'])) + " returned rows from " + request.users_feed_name)
                         # print(bt_hub_response['content'])
 
-                        if (influx_db != None):
+                        if (self.influx_db != None):
                             try:
                                 # longitude=None, latitude=None, tagNames=[], unitText=''
-                                influx_db.import_hypercat_response_json(
+                                self.influx_db.import_hypercat_response_json(
                                     bt_hub_response['content'],
                                     request.users_feed_name,
                                     request.feed_info)
@@ -115,7 +114,7 @@ class Restful_api_poller(Poller):
                             else:
                                 try:
                                     print('select * from ' + request.users_feed_name + ": " +
-                                          str(influx_db.query_database(
+                                          str(self.influx_db.query_database(
                                               'select * from ' + request.users_feed_name + ';')))
                                 except Exception as err:
                                     print("Error reading new data from influx-db.")
@@ -150,9 +149,9 @@ class Restful_api_poller(Poller):
                             str(pi_hub_response[
                                     'returned_matches'])) + " returned rows from " + request.users_feed_name)
 
-                        if (influx_db != None):
+                        if (self.influx_db != None):
                             try:
-                                influx_db.import_pi_response_json(
+                                self.influx_db.import_pi_response_json(
                                     pi_hub_response['content'],
                                     request.users_feed_name,
                                     request.feed_info)
@@ -163,7 +162,7 @@ class Restful_api_poller(Poller):
                             else:
                                 try:
                                     print('select * from ' + request.users_feed_name + ": " +
-                                          str(influx_db.query_database(
+                                          str(self.influx_db.query_database(
                                               'select * from ' + request.users_feed_name + ';')))
                                 except Exception as err:
                                     print("Error reading new data from influx-db.")
