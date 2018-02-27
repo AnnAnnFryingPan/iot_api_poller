@@ -83,7 +83,7 @@ class Restful_api_poller(Poller):
         print("***** No. of streams to be processed: " + str(len(self.api_requests)) + " *****")
 
         if (str(self.influxdb_db_name).strip().lower() != 'file'):
-            influx_db = influxdb_connection.Influxdb_connection(self.influxdb_db_name)
+            self.influx_db = influxdb_connection.Influxdb_connection(self.influxdb_db_name)
 
         for request in self.api_requests.requests:
 
