@@ -1,0 +1,2 @@
+{"feed_info": {"href": "https://api.cityverve.org.uk/v1/entity/crime", "time_field":"entity.occurred"}, "user_defined_name": "crimes_by_day_occurred", "stream_params": ["https://api.cityverve.org.uk","v1", "entity","crime","","static","","datapoints", "{}"]}
+{"feed_info": {"href": "https://api.cityverve.org.uk/v1/entity/accident", "time_field":"entity.created"}, "user_defined_name": "accidents_by_hour_created", "stream_params": ["https://api.cityverve.org.uk","v1", "entity","accident","","static","","datapoints", "{}"]}
