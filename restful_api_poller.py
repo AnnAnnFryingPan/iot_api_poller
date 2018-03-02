@@ -63,7 +63,11 @@ class Restful_api_poller(Poller):
 
         for request in self.api_requests.requests:
             # poll API
-            self.poll_hub(request)
+            try:
+                self.poll_hub(request)
+            except Exception as err:
+                #type(err)(err.message + ': ' + hub_result.reason)
+                print("Not able to poll " + request.users_feed_name + ' at this time. Continuing poller. ' + str(err))
 
 
     def read_files(self):
@@ -125,14 +129,15 @@ class Restful_api_poller(Poller):
 
         try:
             if request.api_core_url == Data_hub_call_restful_bt.core_URL:
+                short_name = 'BT'
                 hub = Data_hub_call_restful_bt(request)
                 hub_response = hub.call_api_fetch(request.params, get_latest_only=self.get_latest_only)
-                short_name = 'BT'
             elif request.api_core_url == Data_hub_call_osisoft_pi.core_URL:
+                short_name = 'Triangulum'
                 hub = Data_hub_call_osisoft_pi(request)
                 hub_response = hub.call_api_fetch(get_latest_only=self.get_latest_only)
-                short_name = 'Triangulum'
             elif request.api_core_url == Data_hub_call_restful_cdp.core_URL:
+                short_name = 'CDP'
                 hub = Data_hub_call_restful_cdp(request)
                 if 'time_field' in request.feed_info:
                     get_children_as_time_series = True
@@ -144,60 +149,53 @@ class Restful_api_poller(Poller):
                                                   get_latest_only=self.get_latest_only,
                                                   get_children_as_time_series=get_children_as_time_series,
                                                   time_field=time_field)
-                short_name = 'CDP'
+
             csv_output_prefix = short_name + '_'
             print(short_name + ' hub response: ' + str(hub_response))
         except Exception as err:
-            print("Error calling " + short_name + " hub: " + request.api_core_url + ". " + str(err))
+            raise err
 
 
-        if (hub_response['ok']):
-            print(short_name + " call successful. " + str(
-                str(hub_response[
-                        'returned_matches'])) + " returned rows from " + request.users_feed_name)
 
-            if (self.influx_db != None):
+        print(short_name + " call successful. " + str(str(hub_response['returned_matches'])) +
+              " returned rows from " + request.users_feed_name)
+
+        if (self.influx_db != None):
+            try:
+                if request.api_core_url == Data_hub_call_restful_bt.core_URL:
+                    self.influx_db.import_restful_bt_response_json(
+                        hub_response['content'],
+                        request.users_feed_name,
+                        request.feed_info)
+                elif request.api_core_url == Data_hub_call_osisoft_pi.core_URL:
+                    self.influx_db.import_pi_response_json(
+                        hub_response['content'],
+                        request.users_feed_name,
+                        request.feed_info)
+                elif request.api_core_url == Data_hub_call_restful_cdp.core_URL:
+                    self.influx_db.import_restful_cdp_response_json(
+                        hub_response['content'],
+                        request.users_feed_name,
+                        request.feed_info)
+                print("Influx-db call successful: Import to influx table: " +
+                      request.users_feed_name + " in " + self.influxdb_db_name)
+            except Exception as err:
+                print("Error populating " + short_name + ": " + str(err))
+            """else:
                 try:
-                    if request.api_core_url == Data_hub_call_restful_bt.core_URL:
-                        self.influx_db.import_restful_bt_response_json(
-                            hub_response['content'],
-                            request.users_feed_name,
-                            request.feed_info)
-                    elif request.api_core_url == Data_hub_call_osisoft_pi.core_URL:
-                        self.influx_db.import_pi_response_json(
-                            hub_response['content'],
-                            request.users_feed_name,
-                            request.feed_info)
-                    elif request.api_core_url == Data_hub_call_restful_cdp.core_URL:
-                        self.influx_db.import_restful_cdp_response_json(
-                            hub_response['content'],
-                            request.users_feed_name,
-                            request.feed_info)
-                    print("Influx-db call successful: Import to influx table: " +
-                          request.users_feed_name + " in " + self.influxdb_db_name)
+                    print('select * from ' + request.users_feed_name + ": " +
+                          str(self.influx_db.query_database(
+                              'select * from ' + request.users_feed_name + ';')))
                 except Exception as err:
-                    print("Error populating " + short_name + ": " + str(err))
-                """else:
-                    try:
-                        print('select * from ' + request.users_feed_name + ": " +
-                              str(self.influx_db.query_database(
-                                  'select * from ' + request.users_feed_name + ';')))
-                    except Exception as err:
-                        print("Error reading new data from influx-db.")"""
-
-            else:
-                file_spec = os.path.join(self.output_dir,
-                                         csv_output_prefix + request.users_feed_name + '.json')
-                try:
-                    with open(file_spec, 'a+') as csv_file:
-                        csv_file.write(hub_response['content'] + '\n')
-                    print("csv file write successful: To file: " + file_spec)
-                except Exception as err:
-                    print('Unable to write to output file .' + str(err))
+                    print("Error reading new data from influx-db.")"""
 
         else:
-            print("Error: call to hub: " + request.api_core_url + " failed with status code:  " + \
-                  hub_response['reason'])
-
-            # print(pi_hub_response)
+            file_spec = os.path.join(self.output_dir,
+                                     csv_output_prefix + request.users_feed_name + '.json')
+            try:
+                with open(file_spec, 'a+') as csv_file:
+                    csv_file.write(hub_response['content'] + '\n')
+                print("csv file write successful: To file: " + file_spec)
+            except Exception as err:
+                print('Unable to write to output file .' + str(err))
 
