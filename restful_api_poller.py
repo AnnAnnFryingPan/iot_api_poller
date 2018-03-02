@@ -46,15 +46,15 @@ class Restful_api_poller(Poller):
         self.api_requests = Request_info_fetch_list()
         self.influx_db = None
 
-        self.read_files()
+        try:
+            self.read_files()
+        except Exception as err:
+            print("Not able to open files in" + home_dir + '. Exiting.')
+            sys.exit()
 
 
 
     def do_work(self):
-        if (len(self.api_requests) == 0):
-            print('Unable to read any streams data from input home directory. Exiting.')
-            sys.exit(0)
-
         print("")
         print("***** No. of streams to be processed: " + str(len(self.api_requests)) + " *****")
 
@@ -66,7 +66,6 @@ class Restful_api_poller(Poller):
             try:
                 self.poll_hub(request)
             except Exception as err:
-                #type(err)(err.message + ': ' + hub_result.reason)
                 print("Not able to poll " + request.users_feed_name + ' at this time. Continuing poller. ' + str(err))
 
 
@@ -120,6 +119,9 @@ class Restful_api_poller(Poller):
                 self.api_requests.append_pi_request_list(api_requests_file)
         except Exception as err:
             print('Unable to read Triangulum streams file ')
+
+        if (len(self.api_requests) == 0):
+            raise FileNotFoundError('Unable to read any streams data from input home directory. Exiting.')
 
 
     def poll_hub(self, request):
