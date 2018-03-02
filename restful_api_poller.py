@@ -78,8 +78,8 @@ class Restful_api_poller(Poller):
                 restful_bt_api_key = list_params[0]
                 restful_bt_username = list_params[1].rstrip('\n')
         except Exception as err:
-            print('Unable to read BT credentials file: ' + os.path.join(self.requests_dir, RESTFUL_BT_SOURCES_DIR,
-                                                                        BT_HUB_CREDENTIALS_FILE))
+            print('Unable to read BT credentials file.')#: ' + os.path.join(self.requests_dir, RESTFUL_BT_SOURCES_DIR,
+                                                        #                BT_HUB_CREDENTIALS_FILE))
         else:
             try:
                 with open(os.path.join(self.requests_dir, RESTFUL_BT_SOURCES_DIR,
@@ -88,8 +88,8 @@ class Restful_api_poller(Poller):
                     self.api_requests.append_restful_bt_request_list(restful_bt_username, restful_bt_api_key,
                                                                      api_requests_file)
             except Exception as err:
-                print('Unable to read BT streams file: ' + os.path.join(self.requests_dir, RESTFUL_BT_SOURCES_DIR,
-                                                                        RESTFUL_BT_REQUESTS_FILE) + str(err))
+                print('Unable to read BT streams file.')#: ' + os.path.join(self.requests_dir, RESTFUL_BT_SOURCES_DIR,
+                                                        #                RESTFUL_BT_REQUESTS_FILE) + str(err))
 
         try:
             with open(os.path.join(self.requests_dir, CDP_SOURCES_DIR, CDP_CREDENTIALS_FILE)) as f_creds:
@@ -98,8 +98,8 @@ class Restful_api_poller(Poller):
                 cdp_api_key = list_params[0].rstrip('\n')
                 #cdp_username = list_params[1].rstrip('\n')
         except Exception as err:
-            print('Unable to read CDP credentials file: ' + os.path.join(self.requests_dir, CDP_SOURCES_DIR,
-                                                                        CDP_CREDENTIALS_FILE))
+            print('Unable to read CDP credentials file.') #: ' + os.path.join(self.requests_dir, CDP_SOURCES_DIR,
+                                                          #              CDP_CREDENTIALS_FILE))
         else:
             try:
                 with open(os.path.join(self.requests_dir, CDP_SOURCES_DIR,
@@ -108,8 +108,8 @@ class Restful_api_poller(Poller):
                     self.api_requests.append_restful_cdp_request_list(cdp_api_key,
                                                                      api_requests_file)
             except Exception as err:
-                print('Unable to read CDP streams file: ' + os.path.join(self.requests_dir, CDP_SOURCES_DIR,
-                                                                        CDP_REQUESTS_FILE) + str(err))
+                print('Unable to read CDP streams file.')#: ' + os.path.join(self.requests_dir, CDP_SOURCES_DIR,
+                                                          #              CDP_REQUESTS_FILE) + str(err))
 
 
         try:
