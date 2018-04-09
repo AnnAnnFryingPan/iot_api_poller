@@ -39,7 +39,6 @@ def main():
         influxdb_db_name = 'file'
     elif(str(influxdb_db_name).strip() == ''):
         print("Error reading second parameter: [influx database name] or 'file'" )
-
     elif (str(get_latest_only).strip() == 'n'):
         bool_get_latest_only = False
     else: #elif(str(get_latest).strip() == '' or str(get_latest).strip() == 'y'):

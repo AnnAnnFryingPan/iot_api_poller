@@ -34,6 +34,10 @@ CSV_OUTPUT_DIR = 'output'
 class Restful_api_poller(Poller):
 
     def __init__(self, home_dir, influxdb_db_name, polling_interval, get_latest_only=True):
+        if not os.path.isdir(home_dir):
+            print("Home directory entered: " + home_dir + " does not exist. Exiting.")
+            sys.exit()
+
         super(Restful_api_poller, self).__init__(polling_interval, get_latest_only)
 
         self.requests_dir = os.path.join(home_dir, INPUT_DIR)
@@ -49,7 +53,7 @@ class Restful_api_poller(Poller):
         try:
             self.read_files()
         except Exception as err:
-            print("Not able to open files in" + home_dir + '. Exiting.')
+            print("Not able to open files in " + home_dir + '. Exiting.')
             sys.exit()
 
 
@@ -85,8 +89,7 @@ class Restful_api_poller(Poller):
                 with open(os.path.join(self.requests_dir, RESTFUL_BT_SOURCES_DIR,
                                        RESTFUL_BT_REQUESTS_FILE)) as f_requests:
                     api_requests_file = f_requests.readlines()
-                    self.api_requests.append_restful_bt_request_list(restful_bt_username, restful_bt_api_key,
-                                                                     api_requests_file)
+                    self.api_requests.append_request_list(api_requests_file, restful_bt_api_key, restful_bt_username)
             except Exception as err:
                 print('Unable to read BT streams file.')#: ' + os.path.join(self.requests_dir, RESTFUL_BT_SOURCES_DIR,
                                                         #                RESTFUL_BT_REQUESTS_FILE) + str(err))
@@ -105,8 +108,7 @@ class Restful_api_poller(Poller):
                 with open(os.path.join(self.requests_dir, CDP_SOURCES_DIR,
                                        CDP_REQUESTS_FILE)) as f_requests:
                     api_requests_file = f_requests.readlines()
-                    self.api_requests.append_restful_cdp_request_list(cdp_api_key,
-                                                                     api_requests_file)
+                    self.api_requests.append_request_list(api_requests_file, cdp_api_key)
             except Exception as err:
                 print('Unable to read CDP streams file.')#: ' + os.path.join(self.requests_dir, CDP_SOURCES_DIR,
                                                           #              CDP_REQUESTS_FILE) + str(err))
@@ -116,7 +118,7 @@ class Restful_api_poller(Poller):
             with open(os.path.join(self.requests_dir, TRIANGULUM_SOURCES_DIR,
                                    TRIANGULUM_REQUESTS_FILE)) as f_requests:
                 api_requests_file = f_requests.readlines()
-                self.api_requests.append_pi_request_list(api_requests_file)
+                self.api_requests.append_request_list(api_requests_file)
         except Exception as err:
             print('Unable to read Triangulum streams file ')
 
