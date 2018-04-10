@@ -1,5 +1,4 @@
 import sys
-
 from restful_api_poller import Restful_api_poller
 
 try:
@@ -34,6 +33,8 @@ def main():
 
     if(str(home_dir).strip() == ''):
         print('Error reading first parameter: input/output directory (string)')
+
+    bool_get_latest_only = None
 
     if(force_file):
         influxdb_db_name = 'file'

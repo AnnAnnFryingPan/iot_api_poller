@@ -4,10 +4,10 @@ from abc import ABCMeta, abstractmethod
 
 class Poller(object):
     __metaclass__ = ABCMeta
-    def __init__(self, polling_interval, get_latest_only=True):
+    def __init__(self, polling_interval):
         self.running = False
         self.polling_interval = polling_interval
-        self.get_latest_only = get_latest_only
+
 
     @abstractmethod
     def do_work(self):
@@ -26,4 +26,3 @@ class Poller(object):
 
     def stop(self):
         self.running = False
-        self.api_requests = None
