@@ -28,25 +28,32 @@ def main():
                     + 'automatically changed to "file".'
         print("2. [influx database name] or 'file'. " + str_force_instruction)
         print("3. polling interval seconds (float)")
-        print("4. Optional: Get new/latest results only (bool) [y or n] - Default = y")
+        print("4. poller id (string)")
+        print("5. Optional: Get new/latest results only (bool) [y or n] - Default = y")
         sys.exit(0)
 
-    if(str(home_dir).strip() == ''):
-        print('Error reading first parameter: input/output directory (string)')
+    try:
+        if(str(home_dir).strip() == ''):
+            raise AttributeError('Error reading first parameter: input/output directory (string). Exiting')
 
-    bool_get_latest_only = None
+        if(force_file):
+            influxdb_db_name = 'file'
+        elif(str(influxdb_db_name).strip() == ''):
+            raise AttributeError("Error reading second parameter: [influx database name] or 'file'. Exiting.")
 
-    if(force_file):
-        influxdb_db_name = 'file'
-    elif(str(influxdb_db_name).strip() == ''):
-        print("Error reading second parameter: [influx database name] or 'file'" )
-    elif (str(get_latest_only).strip() == 'n'):
-        bool_get_latest_only = False
-    else: #elif(str(get_latest).strip() == '' or str(get_latest).strip() == 'y'):
-        bool_get_latest_only = True
+        if (str(get_latest_only).strip() == 'n'):
+            bool_get_latest_only = False
+        else:
+            bool_get_latest_only = True
 
-    poller = Restful_api_poller(home_dir, influxdb_db_name, polling_interval, bool_get_latest_only)
-    poller.start()
+        poller = Restful_api_poller(home_dir, influxdb_db_name, polling_interval, bool_get_latest_only)
+        poller.start()
+
+    except Exception as err:
+        print(str(err))
+        sys.exit(0)
+
+
 
 
 if __name__ == '__main__':

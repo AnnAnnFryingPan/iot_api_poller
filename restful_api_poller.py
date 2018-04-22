@@ -22,6 +22,7 @@ TRIANGULUM_SOURCES_DIR = 'osisoft_pi_sources'
 TRIANGULUM_REQUESTS_FILE = 'list_osisoft-pi_requests.csv'
 
 
+
 try:
     import influxdb_connection
     force_file = False
@@ -33,12 +34,12 @@ class Restful_api_poller(Poller):
 
     INPUT_DIR = 'data_sources'
     CSV_OUTPUT_DIR = 'output'
+    DEFAULT_POLLER_ID = 'default-id'
 
 
     def __init__(self, home_dir, influxdb_db_name, polling_interval, get_latest_only=True):
         if not os.path.isdir(home_dir):
-            print("Home directory entered: " + home_dir + " does not exist. Exiting.")
-            sys.exit()
+            raise IsADirectoryError("Home directory entered: " + home_dir + " does not exist.")
 
         super(Restful_api_poller, self).__init__(polling_interval)
 
@@ -52,14 +53,12 @@ class Restful_api_poller(Poller):
         try:
             self.selected_streams = Selected_streams(self.requests_dir)
             self.selected_streams.get_streams_from_file()
-
         except Exception as err:
-            print("Not able to open files in " + home_dir + '. Exiting.')
-            sys.exit()
+            raise err
 
 
         if (len(self.selected_streams.api_streams.requests) == 0):
-            raise FileNotFoundError('Unable to read any streams data from input home directory. Exiting.')
+            raise IOError('Unable to read any streams data from input home directory. Exiting.')
 
 
     def do_work(self):
