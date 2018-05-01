@@ -122,15 +122,17 @@ class Restful_api_poller(Poller):
         try:
             hub = Data_hub_call_restful_cdp(request)
             if 'time_field' in request.feed_info:
-                get_children_as_time_series = True
                 time_field = request.feed_info['time_field']
             else:
-                get_children_as_time_series = False
+                time_field = ''
+            if 'value_field' in request.feed_info:
+                value_field = request.feed_info['value_field']
+            else:
                 time_field = ''
             hub_response = hub.call_api_fetch(request.params,
                                               get_latest_only=self.get_latest_only,
-                                              get_children_as_time_series=get_children_as_time_series,
-                                              time_field=time_field)
+                                              time_field=time_field,
+                                              value_field=value_field)
             print('CDP hub response: ' + str(hub_response))
         except Exception as err:
             raise err
