@@ -10,9 +10,6 @@ from poller import Poller
 from data_hub_call_factory import Data_hub_call_factory
 
 import influxdb_connection
-#    force_file = False
-#except ImportError:
-#    force_file = True
 
 
 class Restful_api_poller(Poller):
