@@ -28,8 +28,7 @@ def main():
                     + 'automatically changed to "file".'
         print("2. [influx database name] or 'file'. " + str_force_instruction)
         print("3. polling interval seconds (float)")
-        print("4. poller id (string)")
-        print("5. Optional: Get new/latest results only (bool) [y or n] - Default = y")
+        print("4. Optional: Get new/latest results only (bool) [y or n] - Default = y")
         sys.exit(0)
 
     try:

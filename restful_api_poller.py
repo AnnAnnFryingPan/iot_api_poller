@@ -2,17 +2,17 @@ import os
 import sys
 
 sys.path.insert(0, '../data_hub_call')
+sys.path.insert(0, '../poller')
 sys.path.insert(0, '../influxdb_connection')
 
 from selected_streams import Selected_streams
 from poller import Poller
 from data_hub_call_factory import Data_hub_call_factory
 
-try:
-    import influxdb_connection
-    force_file = False
-except ImportError:
-    force_file = True
+import influxdb_connection
+#    force_file = False
+#except ImportError:
+#    force_file = True
 
 
 class Restful_api_poller(Poller):
