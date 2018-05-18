@@ -3,13 +3,12 @@ import sys
 
 sys.path.insert(0, '../data_hub_call')
 sys.path.insert(0, '../poller')
-sys.path.insert(0, '../influxdb_connection')
+sys.path.insert(0, '../database_connection')
 
 from selected_streams import Selected_streams
 from poller import Poller
 from data_hub_call_factory import Data_hub_call_factory
-
-import influxdb_connection
+from databaseConnectionFactory import DatabaseConnectionFactory
 
 
 class Restful_api_poller(Poller):
@@ -18,7 +17,7 @@ class Restful_api_poller(Poller):
     CSV_OUTPUT_DIR = 'output'
     DEFAULT_POLLER_ID = 'default-id'
 
-    def __init__(self, home_dir, influxdb_db_name, polling_interval, get_latest_only=True):
+    def __init__(self, home_dir, db_type, db_name, db_host, db_port, db_user, db_pw, polling_interval, get_latest_only=True):
         if not os.path.isdir(home_dir):
             raise IsADirectoryError("Home directory entered: " + home_dir + " does not exist.")
 
@@ -27,9 +26,15 @@ class Restful_api_poller(Poller):
         self.get_latest_only = get_latest_only
         self.requests_dir = os.path.join(home_dir, self.INPUT_DIR)
         self.output_dir = os.path.join(home_dir, self.CSV_OUTPUT_DIR)
-        self.influxdb_db_name = influxdb_db_name
-
-        self.influx_db = None
+        self.db_name = db_name
+        self.db_type = db_type
+        if str(self.db_name).strip().lower() != 'file':
+            self.db = DatabaseConnectionFactory.create_database_connection(self.db_type,
+                                                                           self.db_name,
+                                                                           db_host,
+                                                                           db_port,
+                                                                           db_user,
+                                                                           db_pw)
 
         try:
             self.selected_streams = Selected_streams(self.requests_dir)
@@ -43,9 +48,6 @@ class Restful_api_poller(Poller):
     def do_work(self):
         print("")
         print("***** No. of streams to be processed: " + str(len(self.selected_streams.api_streams.requests)) + " *****")
-
-        if str(self.influxdb_db_name).strip().lower() != 'file':
-            self.influx_db = influxdb_connection.Influxdb_connection(self.influxdb_db_name)
 
         for request in self.selected_streams.api_streams.requests:
             # poll API
@@ -65,17 +67,17 @@ class Restful_api_poller(Poller):
         print(hub.hub_id + " call successful. " + str(str(hub_response['returned_matches'])) +
               " returned rows from " + request.users_feed_name)
 
-        if self.influx_db is not None:
+        if self.db is not None:
             try:
-                self.influx_db.import_restful_api_response(
+                self.db.import_restful_api_response(
                     hub.get_influx_db_import_json(
                         hub_response['content'],
                         request.users_feed_name,
                         request.feed_info))
-                print("Influx-db call successful: Import to influx table: " +
-                      request.users_feed_name + " in " + self.influxdb_db_name)
+                print("DB call successful: Import to table: " +
+                      request.users_feed_name + " in " + self.db_name)
             except Exception as err:
-                print("Error populating Influx with " + request.hub_id + " data: " + str(err))
+                print("Error populating DB with " + request.hub_id + " data: " + str(err))
 
         else:
             file_spec = os.path.join(self.output_dir,
