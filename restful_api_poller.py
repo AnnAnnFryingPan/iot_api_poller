@@ -5,9 +5,9 @@ sys.path.insert(0, '../data_hub_call')
 sys.path.insert(0, '../poller')
 sys.path.insert(0, '../database_connection')
 
-from selected_streams import Selected_streams
+from selectedStreams import SelectedStreams
 from poller import Poller
-from data_hub_call_factory import Data_hub_call_factory
+from dataHubCallFactory import DataHubCallFactory
 from databaseConnectionFactory import DatabaseConnectionFactory
 
 
@@ -37,7 +37,7 @@ class Restful_api_poller(Poller):
                                                                            db_pw)
 
         try:
-            self.selected_streams = Selected_streams(self.requests_dir)
+            self.selected_streams = SelectedStreams(self.requests_dir)
             self.selected_streams.get_streams_from_file()
         except Exception as err:
             raise err
@@ -58,7 +58,7 @@ class Restful_api_poller(Poller):
 
     def poll_hub(self, request):
         try:
-            hub = Data_hub_call_factory.create_data_hub_call(request)
+            hub = DataHubCallFactory.create_data_hub_call(request)
             hub_response = hub.call_api_fetch(request.params, get_latest_only=self.get_latest_only)
             print(hub.hub_id + ' hub response: ' + str(hub_response))
         except Exception as err:
