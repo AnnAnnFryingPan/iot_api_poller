@@ -1,0 +1,1 @@
+[{"user_defined_name": "no2", "feed_info": {"href": "https://api.cityverve.org.uk/v1/entity/air-quality-no2/324594a0c4b12c1efaf52972aebdacf5", "time_field":["latest","to"], "value_field":["latest","value"]}, "stream_params": ["https://api.cityverve.org.uk/v1", "entity", "air-quality-no2", "324594a0c4b12c1efaf52972aebdacf5"]}]

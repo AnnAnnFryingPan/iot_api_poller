@@ -5,7 +5,7 @@ sys.path.insert(0, '../data_hub_call')
 sys.path.insert(0, '../poller')
 sys.path.insert(0, '../database_connection')
 
-from selectedStreams import SelectedStreams
+from selectedStreamsFromFileHubs import SelectedStreamsFromFileHubs
 from poller import Poller
 from dataHubCallFactory import DataHubCallFactory
 from databaseConnectionFactory import DatabaseConnectionFactory
@@ -37,19 +37,18 @@ class Restful_api_poller(Poller):
                                                                            db_pw)
 
         try:
-            self.selected_streams = SelectedStreams(self.requests_dir)
-            self.selected_streams.get_streams_from_file()
+            self.selected_streams = SelectedStreamsFromFileHubs(self.requests_dir)
         except Exception as err:
             raise err
 
-        if len(self.selected_streams.api_streams.requests) == 0:
+        if len(self.selected_streams.get_api_streams()) == 0:
             raise IOError('Unable to read any streams data from input home directory. Exiting.')
 
     def do_work(self):
         print("")
-        print("***** No. of streams to be processed: " + str(len(self.selected_streams.api_streams.requests)) + " *****")
+        print("***** No. of streams to be processed: " + str(len(self.selected_streams.get_api_streams())) + " *****")
 
-        for request in self.selected_streams.api_streams.requests:
+        for request in self.selected_streams.get_api_streams():
             # poll API
             try:
                 self.poll_hub(request)
