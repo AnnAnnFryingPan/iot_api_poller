@@ -17,7 +17,8 @@ class Restful_api_poller(Poller):
     CSV_OUTPUT_DIR = 'output'
     DEFAULT_POLLER_ID = 'default-id'
 
-    def __init__(self, home_dir, db_type, db_name, db_host, db_port, db_user, db_pw, polling_interval, get_latest_only=True):
+    def __init__(self, force_file, home_dir, db_type, polling_interval, get_latest_only=True,
+                 db_name=None, db_host=None, db_port=None, db_user=None, db_pw=None):
         if not os.path.isdir(home_dir):
             raise IsADirectoryError("Home directory entered: " + home_dir + " does not exist.")
 
@@ -28,13 +29,15 @@ class Restful_api_poller(Poller):
         self.output_dir = os.path.join(home_dir, self.CSV_OUTPUT_DIR)
         self.db_name = db_name
         self.db_type = db_type
-        if str(self.db_name).strip().lower() != 'file':
+        if not force_file and db_type.strip().lower() != 'file':
             self.db = DatabaseConnectionFactory.create_database_connection(self.db_type,
                                                                            self.db_name,
                                                                            db_host,
                                                                            db_port,
                                                                            db_user,
                                                                            db_pw)
+        else:
+            self.db = None
 
         try:
             self.selected_streams = SelectedStreamsFromFileHubs(self.requests_dir)
