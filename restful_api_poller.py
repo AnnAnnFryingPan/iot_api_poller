@@ -83,10 +83,10 @@ class Restful_api_poller(Poller):
 
         else:
             file_spec = os.path.join(self.output_dir,
-                                     request.hub_id + '_' + request.users_feed_name + '.json')
+                                     request.hub_id + '_' + request.users_feed_name + '.csv')
             try:
                 with open(file_spec, 'a+') as csv_file:
-                    csv_file.write(hub_response['content'] + '\n')
+                    csv_file.write(hub.json_result_to_csv(hub_response['content'] + '\n'))
                 print("csv file write successful: To file: " + file_spec)
             except Exception as err:
                 print('Unable to write to output file ' + file_spec + '. ' + str(err))
