@@ -71,7 +71,7 @@ class Restful_api_poller(Poller):
 
         if self.db is not None:
             try:
-                self.db.import_restful_api_response(
+                self.db.import_json(
                     hub.get_influx_db_import_json(
                         hub_response['content'],
                         request.users_feed_name,
