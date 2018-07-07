@@ -2,10 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="65d46536-0683-40a6-9398-8423b2b6e47a" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../database_connection/databaseConnectionInflux.py" beforeDir="false" afterPath="$PROJECT_DIR$/../database_connection/databaseConnectionInflux.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../poller/poller.py" beforeDir="false" afterPath="$PROJECT_DIR$/../poller/poller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../data_hub_call/hypercatCall.py" beforeDir="false" afterPath="$PROJECT_DIR$/../data_hub_call/hypercatCall.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../database_query_poller/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../database_query_poller/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/restful_api_poller.py" beforeDir="false" afterPath="$PROJECT_DIR$/restful_api_poller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_sources/BT-Hub/BT-Hub_request_list.json" beforeDir="false" afterPath="$PROJECT_DIR$/data_sources/BT-Hub/BT-Hub_request_list.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_sources/CityVervePoP/CityVervePoP_request_list.json" beforeDir="false" afterPath="$PROJECT_DIR$/data_sources/CityVervePoP/CityVervePoP_request_list.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_sources/Triangulum/Triangulum_request_list.json" beforeDir="false" afterPath="$PROJECT_DIR$/data_sources/Triangulum/Triangulum_request_list.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/BT_abc.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/BT_abc.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/CDP_no2.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/CDP_no2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/Triangulum_AQ_Occ.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/Triangulum_AQ_Occ.json" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,7 +24,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/restful_api_poller$restful_api_poller.coverage" NAME="restful_api_poller Coverage Results" MODIFIED="1528726865711" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/.." />
+    <SUITE FILE_PATH="coverage/restful_api_poller$restful_api_poller.coverage" NAME="restful_api_poller Coverage Results" MODIFIED="1530882447479" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/.." />
     <SUITE FILE_PATH="coverage/restful_api_poller$Unnamed.coverage" NAME="restful_api_poller Coverage Results" MODIFIED="1525458028299" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/.." />
   </component>
   <component name="FileEditorManager">
@@ -32,11 +41,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="restful_api_poller.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="restful_api_poller.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/restful_api_poller.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="74" column="40" lean-forward="true" selection-start-line="74" selection-start-column="40" selection-end-line="74" selection-end-column="40" />
+            <state relative-caret-position="404">
+              <caret line="68" column="94" lean-forward="true" selection-start-line="68" selection-start-column="94" selection-end-line="68" selection-end-column="94" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -44,11 +53,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="databaseConnectionInflux.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="databaseConnectionInflux.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../database_connection/databaseConnectionInflux.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="639">
-              <caret line="65" column="104" selection-start-line="65" selection-start-column="104" selection-end-line="65" selection-end-column="104" />
+            <state relative-caret-position="795">
+              <caret line="54" column="71" selection-start-line="54" selection-start-column="71" selection-end-line="54" selection-end-column="71" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -56,29 +65,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dataHubCallBTHub.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../data_hub_call/dataHubCallBTHub.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="54" column="29" lean-forward="true" selection-start-line="54" selection-start-column="29" selection-end-line="54" selection-end-column="29" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dataHubCallTriangulum.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../data_hub_call/dataHubCallTriangulum.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1980">
-              <caret line="137" selection-start-line="137" selection-end-line="137" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="dataHubCall.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../data_hub_call/dataHubCall.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="22" column="12" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
+            <state relative-caret-position="210">
+              <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -107,7 +98,7 @@
     </findStrings>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../database_connection" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -135,13 +126,16 @@
         <option value="$PROJECT_DIR$/../data_hub_call/selectedStreamsDirectory.py" />
         <option value="$PROJECT_DIR$/../data_hub_call/selectedStreamsFromDBHubs.py" />
         <option value="$PROJECT_DIR$/../data_hub_call/selectedStreamsFromFileHubs.py" />
-        <option value="$PROJECT_DIR$/../database_connection/databaseConnectionInflux.py" />
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/../data_hub_call/dataHubCall.py" />
-        <option value="$PROJECT_DIR$/../data_hub_call/dataHubCallCityVervePoP.py" />
+        <option value="$PROJECT_DIR$/../database_connection/databaseConnectionInflux.py" />
+        <option value="$PROJECT_DIR$/restful_api_poller.py" />
         <option value="$PROJECT_DIR$/../data_hub_call/dataHubCallTriangulum.py" />
         <option value="$PROJECT_DIR$/../data_hub_call/dataHubCallBTHub.py" />
-        <option value="$PROJECT_DIR$/restful_api_poller.py" />
+        <option value="$PROJECT_DIR$/../data_hub_call/dataHubCallCityVervePoP.py" />
+        <option value="$PROJECT_DIR$/data_sources/Triangulum/Triangulum_request_list.json" />
+        <option value="$PROJECT_DIR$/data_sources/CityVervePoP/CityVervePoP_request_list.json" />
+        <option value="$PROJECT_DIR$/data_sources/BT-Hub/BT-Hub_request_list.json" />
       </list>
     </option>
   </component>
@@ -175,16 +169,15 @@
             </path>
             <path>
               <item name="restful_api_poller" type="b2602c69:ProjectViewProjectNode" />
-              <item name="restful_api_poller" type="462c0819:PsiDirectoryNode" />
-              <item name="Docs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="restful_api_poller" type="b2602c69:ProjectViewProjectNode" />
               <item name="data_hub_call" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="restful_api_poller" type="b2602c69:ProjectViewProjectNode" />
               <item name="database_connection" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="restful_api_poller" type="b2602c69:ProjectViewProjectNode" />
+              <item name="poller" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -197,7 +190,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -226,7 +219,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
-      <option name="PARAMETERS" value="$PROJECT_DIR$ file 5.0 y BT_Feeds_Test_5 localhost 8086 root root" />
+      <option name="PARAMETERS" value="$PROJECT_DIR$/charlie file 3600.0 y BT_Feeds_Test_4 localhost 8086 root root" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
@@ -261,17 +254,17 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="-4" width="1680" height="1054" extended-state="6" />
+    <frame x="-1" y="-11" width="1682" height="1062" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.4611231" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.4765625" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.3297414" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3297414" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2625459" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32937366" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.37943697" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="SciView" order="3" />
@@ -330,7 +323,7 @@
           <option name="timeStamp" value="28" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="55" />
+      <option name="time" value="56" />
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
@@ -358,23 +351,16 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../data_hub_call/data_hub_call.py" />
-    <entry file="file://$PROJECT_DIR$/../data_hub_call/data_hub_call_factory.py" />
     <entry file="file://$PROJECT_DIR$/restful_api_poller.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1035">
-          <caret line="70" column="38" selection-start-line="70" selection-start-column="38" selection-end-line="70" selection-end-column="38" />
+        <state relative-caret-position="1050">
+          <caret line="71" column="31" lean-forward="true" selection-start-line="71" selection-start-column="31" selection-end-line="71" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="49" selection-start-line="49" selection-end-line="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/poller.py" />
     <entry file="file://$PROJECT_DIR$/restful_api_poller.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="900">
@@ -473,9 +459,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="16" column="36" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -483,16 +466,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="21" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -517,50 +490,88 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../data_hub_call/dataHubCall.py">
+    <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="22" column="12" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="12" />
+        <state relative-caret-position="180">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../data_hub_call/dataHubCallCityVervePoP.py">
+    <entry file="file://$PROJECT_DIR$/../data_hub_call/dataHubCall.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="338" selection-start-line="338" selection-end-line="338" />
+        <state relative-caret-position="210">
+          <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../data_hub_call/dataHubCallTriangulum.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1980">
-          <caret line="137" selection-start-line="137" selection-end-line="137" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/restful_api_poller.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="74" column="40" lean-forward="true" selection-start-line="74" selection-start-column="40" selection-end-line="74" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="614">
+          <caret line="50" column="23" lean-forward="true" selection-start-line="50" selection-start-column="23" selection-end-line="50" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../data_hub_call/dataHubCallBTHub.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="54" column="29" lean-forward="true" selection-start-line="54" selection-start-column="29" selection-end-line="54" selection-end-column="29" />
+        <state relative-caret-position="750">
+          <caret line="64" column="56" selection-start-line="64" selection-start-column="56" selection-end-line="64" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../data_hub_call/dataHubCallCityVervePoP.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="524">
+          <caret line="69" column="56" selection-start-line="69" selection-start-column="56" selection-end-line="69" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../cv_test/venv/lib/python3.5/site-packages/influxdb/client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="413" column="8" selection-start-line="413" selection-start-column="8" selection-end-line="413" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../database_connection/databaseConnectionInflux.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="639">
-          <caret line="65" column="104" selection-start-line="65" selection-start-column="104" selection-end-line="65" selection-end-column="104" />
+        <state relative-caret-position="795">
+          <caret line="54" column="71" selection-start-line="54" selection-start-column="71" selection-end-line="54" selection-end-column="71" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_sources/BT-Hub/BT-Hub_request_list.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="34" selection-start-column="34" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_sources/CityVervePoP/CityVervePoP_request_list.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="62" selection-start-column="62" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_sources/Triangulum/Triangulum_request_list.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="34" selection-start-column="16" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/restful_api_poller.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="68" column="94" lean-forward="true" selection-start-line="68" selection-start-column="94" selection-end-line="68" selection-end-column="94" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
