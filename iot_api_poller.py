@@ -11,7 +11,7 @@ from dataHubCallFactory import DataHubCallFactory
 from databaseConnectionFactory import DatabaseConnectionFactory
 
 
-class Restful_api_poller(Poller):
+class Iot_api_poller(Poller):
 
     INPUT_DIR = 'data_sources'
     CSV_OUTPUT_DIR = 'output'
@@ -22,7 +22,7 @@ class Restful_api_poller(Poller):
         if not os.path.isdir(home_dir):
             raise IsADirectoryError("Home directory entered: " + home_dir + " does not exist.")
 
-        super(Restful_api_poller, self).__init__(polling_interval)
+        super(Iot_api_poller, self).__init__(polling_interval)
 
         self.get_latest_only = get_latest_only
         self.requests_dir = os.path.join(home_dir, self.INPUT_DIR)

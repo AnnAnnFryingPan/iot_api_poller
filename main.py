@@ -1,5 +1,5 @@
 import sys
-from restful_api_poller import Restful_api_poller
+from iot_api_poller import Iot_api_poller
 
 try:
     import databaseConnectionInflux
@@ -78,7 +78,7 @@ def main():
 
 
 
-        poller = Restful_api_poller(
+        poller = Iot_api_poller(
             force_file,
             home_dir, db_type, polling_interval, bool_get_latest_only, db_name, db_host, db_port, db_user, db_pw)
         poller.start()
