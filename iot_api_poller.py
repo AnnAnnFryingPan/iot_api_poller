@@ -7,8 +7,13 @@ sys.path.insert(0, '../database_connection')
 
 from selectedStreamsFromFileHubs import SelectedStreamsFromFileHubs
 from poller import Poller
-from dataHubCallFactory import DataHubCallFactory
-from databaseConnectionFactory import DatabaseConnectionFactory
+
+try:
+    from dataHubCallFactory import DataHubCallFactory
+    from databaseConnectionFactory import DatabaseConnectionFactory
+except:
+    pass
+
 
 
 class Iot_api_poller(Poller):
