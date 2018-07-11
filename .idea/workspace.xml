@@ -1,66 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="65d46536-0683-40a6-9398-8423b2b6e47a" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/../data_hub_call/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data_hub_call/dataHubCall.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data_hub_call/dataHubCallBTHub.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data_hub_call/dataHubCallCityVervePoP.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data_hub_call/dataHubCallFactory.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data_hub_call/dataHubCallTriangulum.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data_hub_call/hypercatCall.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data_hub_call/requestInfo.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data_hub_call/requestInfoBTHub.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data_hub_call/requestInfoBTHubFetch.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data_hub_call/requestInfoBTHubPost.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data_hub_call/requestInfoCityVervePoP.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data_hub_call/requestInfoCityVervePoPFetch.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data_hub_call/requestInfoFetchFactory.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data_hub_call/requestInfoFetchList.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data_hub_call/requestInfoList.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data_hub_call/requestInfoTriangulum.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data_hub_call/requestInfoTriangulumFetch.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data_hub_call/selectedStreamsDirectory.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data_hub_call/selectedStreamsFiles.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data_hub_call/selectedStreamsFromDBHubs.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data_hub_call/selectedStreamsFromFileHubs.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../data_hub_call/tests/get_date_time_test.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../database_query_poller/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../database_query_poller/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../database_query_poller/data_sources/manipulation_queries.json" beforeDir="false" afterPath="$PROJECT_DIR$/../database_query_poller/data_sources/manipulation_queries.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Example cmd input parameters" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/License" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/charlie/data_sources/BT-Hub/BT-Hub_credentials.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/charlie/data_sources/BT-Hub/BT-Hub_request_list.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/charlie/output/BT_bee_active_0.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/charlie/output/BT_bee_active_1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/charlie/output/BT_bee_active_2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/charlie/output/BT_bee_active_3.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/charlie/output/BT_bee_active_4.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/charlie/output/BT_bee_active_5.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/charlie/output/BT_bee_active_6.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/charlie/output/BT_bee_active_7.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/charlie/output/BT_people_count_1_0.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/charlie/output/BT_people_count_1_1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/charlie/output/BT_people_count_1_2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sources/BT-Hub/BT-Hub_credentials FAKE.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sources/BT-Hub/BT-Hub_credentials.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sources/BT-Hub/BT-Hub_request_list.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sources/BT-Hub/ReadMe.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sources/BT-Hub/list_restful_bt_requests_old.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sources/CityVervePoP/CityVervePoP_credentials FAKE.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sources/CityVervePoP/CityVervePoP_credentials.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sources/CityVervePoP/CityVervePoP_request_list.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sources/CityVervePoP/ReadMe.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sources/CityVervePoP/list_cdp_requests_old_with_accidents.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sources/Triangulum/ReadMe.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sources/Triangulum/Triangulum_request_list.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_sources/Triangulum/list_osisoft-pi_requests_old.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/iot_api_poller.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" />
-    </list>
+    <list default="true" id="65d46536-0683-40a6-9398-8423b2b6e47a" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
