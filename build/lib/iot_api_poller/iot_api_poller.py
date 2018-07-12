@@ -1,11 +1,16 @@
 import os
+import sys
 
-from data_hub_call.selectedStreamsFromFileHubs import SelectedStreamsFromFileHubs
-from poller.poller import Poller
+sys.path.insert(0, '../data_hub_call')
+sys.path.insert(0, '../poller')
+sys.path.insert(0, '../database_connection')
+
+from selectedStreamsFromFileHubs import SelectedStreamsFromFileHubs
+from poller import Poller
 
 try:
-    from data_hub_call.dataHubCallFactory import DataHubCallFactory
-    from database_connection.databaseConnectionFactory import DatabaseConnectionFactory
+    from dataHubCallFactory import DataHubCallFactory
+    from databaseConnectionFactory import DatabaseConnectionFactory
 except:
     pass
 
