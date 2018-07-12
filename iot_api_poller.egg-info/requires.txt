@@ -1,0 +1,9 @@
+certifi==2018.4.16
+chardet==3.0.4
+data-hub-call==0.3
+idna==2.7
+poller==0.1
+python-dateutil==2.7.3
+requests==2.19.1
+six==1.11.0
+urllib3==1.23

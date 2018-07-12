@@ -1,11 +1,11 @@
 import sys
-from iot_api_poller import Iot_api_poller
+from iotApiPoller import IotApiPoller
 
 try:
-    import databaseConnectionInflux
+    import database_connection.databaseConnectionInflux
     force_file = False
 except ImportError as err:
-    print("Error importing Influx")
+    print("Error importing Influx. Will attempt to write to CSV file instead")
     force_file = True
 
 
@@ -78,7 +78,7 @@ def main():
 
 
 
-        poller = Iot_api_poller(
+        poller = IotApiPoller(
             force_file,
             home_dir, db_type, polling_interval, bool_get_latest_only, db_name, db_host, db_port, db_user, db_pw)
         poller.start()

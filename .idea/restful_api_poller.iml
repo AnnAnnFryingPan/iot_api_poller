@@ -4,10 +4,9 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="Hypercat_hub_call" />
-    <orderEntry type="module" module-name="influxdb_connection" />
-    <orderEntry type="module" module-name="poller" />
     <orderEntry type="module" module-name="database_connection" />
+    <orderEntry type="module" module-name="Hypercat_hub_call" />
+    <orderEntry type="module" module-name="poller" />
   </component>
   <component name="TestRunnerService">
     <option name="PROJECT_TEST_RUNNER" value="Unittests" />

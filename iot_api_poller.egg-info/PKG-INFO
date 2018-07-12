@@ -1,6 +1,6 @@
 Metadata-Version: 1.0
 Name: iot-api-poller
-Version: 0.1
+Version: 0.4
 Summary: Polling app that fetches data from IoT hubs
 Home-page: https://github.com/AnnAnnFryingPan/iot_api_poller
 Author: Ann Gledson
