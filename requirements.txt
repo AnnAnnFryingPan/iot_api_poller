@@ -6,5 +6,6 @@ iot-api-poller==0.4
 poller==0.1
 python-dateutil==2.7.3
 requests==2.19.1
+schedule==0.5.0
 six==1.11.0
 urllib3==1.23

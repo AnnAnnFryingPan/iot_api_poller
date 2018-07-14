@@ -1,5 +1,6 @@
 import sys
-from iotApiPoller import IotApiPoller
+
+from iot_api_poller.iotApiPoller import IotApiPoller
 
 try:
     import database_connection.databaseConnectionInflux

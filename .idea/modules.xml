@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../data_hub_call/.idea/Hypercat_hub_call.iml" filepath="$PROJECT_DIR$/../data_hub_call/.idea/Hypercat_hub_call.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../database_connection/.idea/database_connection.iml" filepath="$PROJECT_DIR$/../database_connection/.idea/database_connection.iml" />
       <module fileurl="file://$PROJECT_DIR$/../influxdb_connection/.idea/influxdb_connection.iml" filepath="$PROJECT_DIR$/../influxdb_connection/.idea/influxdb_connection.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../poller/.idea/poller.iml" filepath="$PROJECT_DIR$/../poller/.idea/poller.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/restful_api_poller.iml" filepath="$PROJECT_DIR$/.idea/restful_api_poller.iml" />
     </modules>
   </component>

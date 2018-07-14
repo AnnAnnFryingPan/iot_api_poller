@@ -1,3 +1,3 @@
 [{"feed_info": {"type":"original","href": "http://api.bt-hypercat.com/sensors/feeds/6d568cfb-dfd4-4701-b34d-31026cc54bb9/datastreams/0"}, "user_defined_name": "abc", "stream_params": ["http://api.bt-hypercat.com", "sensors", "6d568cfb-dfd4-4701-b34d-31026cc54bb9", "datastreams", "0", "datapoints", "{}"]},
-{"feed_info": {"type":"original","href": "http://api.bt-hypercat.com/sensors/feeds/fd1109c8-093e-4404-8d2a-33b338a1222c/datastreams/1"}, "user_defined_name": "bee-active", "stream_params": ["http://api.bt-hypercat.com", "sensors", "fd1109c8-093e-4404-8d2a-33b338a1222c", "datastreams", "1", "datapoints", "{}"]}]
+{"feed_info": {"type":"original","href": "http://api.bt-hypercat.com/sensors/feeds/fd1109c8-093e-4404-8d2a-33b338a1222c/datastreams/1"}, "user_defined_name": "bee_active", "stream_params": ["http://api.bt-hypercat.com", "sensors", "fd1109c8-093e-4404-8d2a-33b338a1222c", "datastreams", "1", "datapoints", "{}"]}]
 
