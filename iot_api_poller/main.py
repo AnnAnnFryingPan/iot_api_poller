@@ -15,18 +15,22 @@ def main():
         if (len(sys.argv) > 0):
             home_dir = sys.argv[1]  # ./data_sources
             db_type = sys.argv[2]  # influx
-            polling_interval = float(sys.argv[3])  # 5.0
             try:
-                get_latest_only = sys.argv[4]  # y or n
+                check_files = sys.argv[3]  # y or n
+            except:
+                check_files = ''
+            polling_interval = float(sys.argv[4])  # 5.0
+            try:
+                get_latest_only = sys.argv[5]  # y or n
             except:
                 get_latest_only = ''
 
             if force_file == False and db_type.lower().strip() != 'file':
-                db_name = sys.argv[5]  # BT_Feeds_Test_3
-                db_host = sys.argv[6]  # localhost
-                db_port = sys.argv[7]  # 8086
-                db_user = sys.argv[8]  # root
-                db_pw = sys.argv[9]  # root
+                db_name = sys.argv[6]  # BT_Feeds_Test_3
+                db_host = sys.argv[7]  # localhost
+                db_port = sys.argv[8]  # 8086
+                db_user = sys.argv[9]  # root
+                db_pw = sys.argv[10]  # root
             else:
                 db_name = None
                 db_host = None
@@ -40,16 +44,17 @@ def main():
         print("Expected inputs: ")
         print("1. input/output directory path (string)")
         print("2. database type: [influx|file] (Will be a list of options eventually but currently just 'influx' or file)")
-        print("3. polling interval seconds (float)")
-        print("4. Get new/latest results only (bool) [y or n] - Default = y")
+        print("3. Check the files each poll (bool) [y or n] - Default = y")
+        print("4. polling interval seconds (float)")
+        print("5. Get new/latest results only (bool) [y or n] - Default = y")
         if force_file == False:
             print("")
             print("If database type is not 'file' then the following options are required:")
-            print("     5. [database name]")
-            print("     6. [database host]")
-            print("     7. [database port]")
-            print("     8. [database user]")
-            print("     9. [database password]")
+            print("     6. [database name]")
+            print("     7. [database host]")
+            print("     8. [database port]")
+            print("     9. [database user]")
+            print("     10. [database password]")
 
         sys.exit(0)
 
@@ -59,6 +64,11 @@ def main():
 
         if str(db_type).strip() == '':
             raise AttributeError("Error reading second parameter: database type]. Exiting.")
+
+        if str(check_files).strip() == 'n':
+            bool_check_files = False
+        else:
+            bool_check_files = True
 
         if str(get_latest_only).strip() == 'n':
             bool_get_latest_only = False
@@ -81,7 +91,7 @@ def main():
 
         poller = IotApiPoller(
             force_file,
-            home_dir, db_type, polling_interval, bool_get_latest_only, db_name, db_host, db_port, db_user, db_pw)
+            home_dir, db_type, polling_interval, bool_check_files, bool_get_latest_only, db_name, db_host, db_port, db_user, db_pw)
         poller.start()
 
     except Exception as err:
