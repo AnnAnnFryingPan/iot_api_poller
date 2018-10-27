@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='iot_api_poller',
-      version='0.8',
+      version='0.9',
       description='Polling app that fetches data from IoT hubs',
       url='https://github.com/AnnAnnFryingPan/iot_api_poller',
       author='Ann Gledson',

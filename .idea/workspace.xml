@@ -4,45 +4,18 @@
     <list default="true" id="65d46536-0683-40a6-9398-8423b2b6e47a" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/../database_connection/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../database_connection/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../database_query_poller/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../database_query_poller/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../database_query_poller/build/lib/database_query_poller/dbQueryInflux.py" beforeDir="false" afterPath="$PROJECT_DIR$/../database_query_poller/build/lib/database_query_poller/dbQueryInflux.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../database_query_poller/build/lib/database_query_poller/dbQueryListFactory.py" beforeDir="false" afterPath="$PROJECT_DIR$/../database_query_poller/build/lib/database_query_poller/dbQueryListFactory.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../database_query_poller/build/lib/database_query_poller/dbQueryListInflux.py" beforeDir="false" afterPath="$PROJECT_DIR$/../database_query_poller/build/lib/database_query_poller/dbQueryListInflux.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../database_query_poller/build/lib/database_query_poller/queryProcessAggregate.py" beforeDir="false" afterPath="$PROJECT_DIR$/../database_query_poller/build/lib/database_query_poller/queryProcessAggregate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../database_query_poller/build/lib/database_query_poller/queryProcessFactory.py" beforeDir="false" afterPath="$PROJECT_DIR$/../database_query_poller/build/lib/database_query_poller/queryProcessFactory.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../database_query_poller/build/lib/database_query_poller/queryProcessFilterDayTypes.py" beforeDir="false" afterPath="$PROJECT_DIR$/../database_query_poller/build/lib/database_query_poller/queryProcessFilterDayTypes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../database_query_poller/build/lib/database_query_poller/queryProcessFilterRanges.py" beforeDir="false" afterPath="$PROJECT_DIR$/../database_query_poller/build/lib/database_query_poller/queryProcessFilterRanges.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../database_query_poller/build/lib/database_query_poller/queryProcessInfluxCQ.py" beforeDir="false" afterPath="$PROJECT_DIR$/../database_query_poller/build/lib/database_query_poller/queryProcessInfluxCQ.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../database_query_poller/build/lib/database_query_poller/queryProcessMissingValuesPrediction.py" beforeDir="false" afterPath="$PROJECT_DIR$/../database_query_poller/build/lib/database_query_poller/queryProcessMissingValuesPrediction.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../database_query_poller/build/lib/database_query_poller/queryProcessMissingValuesRolling.py" beforeDir="false" afterPath="$PROJECT_DIR$/../database_query_poller/build/lib/database_query_poller/queryProcessMissingValuesRolling.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../database_query_poller/build/lib/database_query_poller/queryProcessNormalise.py" beforeDir="false" afterPath="$PROJECT_DIR$/../database_query_poller/build/lib/database_query_poller/queryProcessNormalise.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../database_query_poller/build/lib/database_query_poller/queryProcessPandas.py" beforeDir="false" afterPath="$PROJECT_DIR$/../database_query_poller/build/lib/database_query_poller/queryProcessPandas.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../database_query_poller/build/lib/database_query_poller/queryProcessSmoothOutliers.py" beforeDir="false" afterPath="$PROJECT_DIR$/../database_query_poller/build/lib/database_query_poller/queryProcessSmoothOutliers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../database_query_poller/build/lib/database_query_poller/databaseQueryPoller.py" beforeDir="false" afterPath="$PROJECT_DIR$/../database_query_poller/build/lib/database_query_poller/databaseQueryPoller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../database_query_poller/build/lib/database_query_poller/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../database_query_poller/build/lib/database_query_poller/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../database_query_poller/database_query_poller.egg-info/PKG-INFO" beforeDir="false" afterPath="$PROJECT_DIR$/../database_query_poller/database_query_poller.egg-info/PKG-INFO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../database_query_poller/database_query_poller/databaseQueryPoller.py" beforeDir="false" afterPath="$PROJECT_DIR$/../database_query_poller/database_query_poller/databaseQueryPoller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../database_query_poller/database_query_poller/dbQueryInflux.py" beforeDir="false" afterPath="$PROJECT_DIR$/../database_query_poller/database_query_poller/dbQueryInflux.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../database_query_poller/database_query_poller/dbQueryListFactory.py" beforeDir="false" afterPath="$PROJECT_DIR$/../database_query_poller/database_query_poller/dbQueryListFactory.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../database_query_poller/database_query_poller/dbQueryListInflux.py" beforeDir="false" afterPath="$PROJECT_DIR$/../database_query_poller/database_query_poller/dbQueryListInflux.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../database_query_poller/database_query_poller/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../database_query_poller/database_query_poller/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../database_query_poller/database_query_poller/queryProcessAggregate.py" beforeDir="false" afterPath="$PROJECT_DIR$/../database_query_poller/database_query_poller/queryProcessAggregate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../database_query_poller/database_query_poller/queryProcessFactory.py" beforeDir="false" afterPath="$PROJECT_DIR$/../database_query_poller/database_query_poller/queryProcessFactory.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../database_query_poller/database_query_poller/queryProcessFilterDayTypes.py" beforeDir="false" afterPath="$PROJECT_DIR$/../database_query_poller/database_query_poller/queryProcessFilterDayTypes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../database_query_poller/database_query_poller/queryProcessFilterRanges.py" beforeDir="false" afterPath="$PROJECT_DIR$/../database_query_poller/database_query_poller/queryProcessFilterRanges.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../database_query_poller/database_query_poller/queryProcessInfluxCQ.py" beforeDir="false" afterPath="$PROJECT_DIR$/../database_query_poller/database_query_poller/queryProcessInfluxCQ.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../database_query_poller/database_query_poller/queryProcessMissingValuesPrediction.py" beforeDir="false" afterPath="$PROJECT_DIR$/../database_query_poller/database_query_poller/queryProcessMissingValuesPrediction.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../database_query_poller/database_query_poller/queryProcessMissingValuesRolling.py" beforeDir="false" afterPath="$PROJECT_DIR$/../database_query_poller/database_query_poller/queryProcessMissingValuesRolling.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../database_query_poller/database_query_poller/queryProcessNormalise.py" beforeDir="false" afterPath="$PROJECT_DIR$/../database_query_poller/database_query_poller/queryProcessNormalise.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../database_query_poller/database_query_poller/queryProcessPandas.py" beforeDir="false" afterPath="$PROJECT_DIR$/../database_query_poller/database_query_poller/queryProcessPandas.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../database_query_poller/database_query_poller/queryProcessSmoothOutliers.py" beforeDir="false" afterPath="$PROJECT_DIR$/../database_query_poller/database_query_poller/queryProcessSmoothOutliers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../database_query_poller/dist/database_query_poller-0.3-py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../database_query_poller/dist/database_query_poller-0.3.tar.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../database_query_poller/dist/database_query_poller-0.8-py3-none-any.whl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../database_query_poller/dist/database_query_poller-0.8.tar.gz" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../database_query_poller/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/../database_query_poller/setup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/iot_api_poller-0.7-py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/iot_api_poller-0.7.tar.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/iot_api_poller/iotApiPoller.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/iot_api_poller/iotApiPoller.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/iot_api_poller/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/iot_api_poller/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/iot_api_poller-0.8-py3-none-any.whl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/iot_api_poller-0.8.tar.gz" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/iot_api_poller.egg-info/PKG-INFO" beforeDir="false" afterPath="$PROJECT_DIR$/iot_api_poller.egg-info/PKG-INFO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iot_api_poller/iotApiPoller.py" beforeDir="false" afterPath="$PROJECT_DIR$/iot_api_poller/iotApiPoller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/iot_api_poller/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/iot_api_poller/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../poller/poller/poller.py" beforeDir="false" afterPath="$PROJECT_DIR$/../poller/poller/poller.py" afterDir="false" />
     </list>
@@ -78,8 +51,8 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/iot_api_poller/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="70" column="35" lean-forward="true" selection-start-line="67" selection-start-column="8" selection-end-line="70" selection-end-column="35" />
+            <state relative-caret-position="1020">
+              <caret line="70" column="35" selection-start-line="67" selection-start-column="8" selection-end-line="70" selection-end-column="35" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -91,7 +64,7 @@
         <entry file="file://$PROJECT_DIR$/iot_api_poller/iotApiPoller.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="353">
-              <caret line="61" column="22" lean-forward="true" selection-start-line="53" selection-start-column="8" selection-end-line="61" selection-end-column="22" />
+              <caret line="61" column="22" selection-start-line="61" selection-start-column="22" selection-end-line="61" selection-end-column="22" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -183,10 +156,9 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="75" />
-    <option name="y" value="34" />
-    <option name="width" value="1600" />
-    <option name="height" value="840" />
+    <option name="y" value="-28" />
+    <option name="width" value="1920" />
+    <option name="height" value="1108" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -194,7 +166,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -211,11 +182,12 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../cv_test" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
@@ -433,23 +405,23 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
+    <frame x="-1" y="-11" width="1922" height="1092" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32937366" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.56587476" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32937366" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32937366" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.56587476" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.19762419" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18076286" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18249734" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="4" weight="0.32977587" />
       <window_info anchor="right" id="SciView" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.40928724" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.40928724" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -661,8 +633,8 @@
     <entry file="file://$PROJECT_DIR$/../data_hub_call/data_hub_call/selectedStreamsFromDBHubs.py" />
     <entry file="file://$PROJECT_DIR$/iot_api_poller/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="70" column="35" lean-forward="true" selection-start-line="67" selection-start-column="8" selection-end-line="70" selection-end-column="35" />
+        <state relative-caret-position="1020">
+          <caret line="70" column="35" selection-start-line="67" selection-start-column="8" selection-end-line="70" selection-end-column="35" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
@@ -672,7 +644,7 @@
     <entry file="file://$PROJECT_DIR$/iot_api_poller/iotApiPoller.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="353">
-          <caret line="61" column="22" lean-forward="true" selection-start-line="53" selection-start-column="8" selection-end-line="61" selection-end-column="22" />
+          <caret line="61" column="22" selection-start-line="61" selection-start-column="22" selection-end-line="61" selection-end-column="22" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>

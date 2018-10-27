@@ -18,7 +18,7 @@ class IotApiPoller(Poller):
     CSV_OUTPUT_DIR = 'output'
     DEFAULT_POLLER_ID = 'default-id'
 
-    def __init__(self, force_file, home_dir, db_type, polling_interval, get_latest_only=True,
+    def __init__(self, force_file, home_dir, db_type, polling_interval, check_files=True, get_latest_only=True,
                  db_name=None, db_host=None, db_port=None, db_user=None, db_pw=None):
         if not os.path.isdir(home_dir):
             raise IsADirectoryError("Home directory entered: " + home_dir + " does not exist.")
@@ -26,6 +26,7 @@ class IotApiPoller(Poller):
         super(IotApiPoller, self).__init__(polling_interval)
 
         self.get_latest_only = get_latest_only
+        self.check_files_each_poll = check_files
         self.requests_dir = os.path.join(home_dir, self.INPUT_DIR)
         self.output_dir = os.path.join(home_dir, self.CSV_OUTPUT_DIR)
         self.db_name = db_name
@@ -40,15 +41,27 @@ class IotApiPoller(Poller):
         else:
             self.db = None
 
-        try:
-            self.selected_streams = SelectedStreamsFromFileHubs(self.requests_dir)
-        except Exception as err:
-            raise err
+        if self.check_files_each_poll == False:
+            try:
+                self.selected_streams = SelectedStreamsFromFileHubs(self.requests_dir)
+            except Exception as err:
+                raise err
 
-        if len(self.selected_streams.get_api_streams()) == 0:
-            raise IOError('Unable to read any streams data from input home directory. Exiting.')
+            if len(self.selected_streams.get_api_streams()) == 0:
+                raise IOError('Unable to read any streams data from input home directory. Exiting.')
 
     def do_work(self):
+        if self.check_files_each_poll == True:
+            try:
+                self.selected_streams = SelectedStreamsFromFileHubs(self.requests_dir)
+            except Exception as err:
+                print("Error loading streams during this poll: " + str(err))
+
+            if len(self.selected_streams.get_api_streams()) == 0:
+                print('Unable to read any streams data from input home directory during this poll.')
+                return
+
+
         print("")
         print("***** No. of streams to be processed: " + str(len(self.selected_streams.get_api_streams())) + " *****")
 
