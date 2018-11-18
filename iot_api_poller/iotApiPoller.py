@@ -1,18 +1,18 @@
 import os
 
 from data_hub_call.selectedStreamsFromFileHubs import SelectedStreamsFromFileHubs
-from poller.poller import Poller
+from scheduled_poller.scheduled_poller import Scheduled_poller
 from data_hub_call.dataHubCallFactory import DataHubCallFactory
 
 try:
 
-    from database_connection.databaseConnectionFactory import DatabaseConnectionFactory
+    from aafp_database_connection.databaseConnectionFactory import DatabaseConnectionFactory
 except:
     pass
 
 
 
-class IotApiPoller(Poller):
+class IotApiPoller(Scheduled_poller):
 
     INPUT_DIR = 'data_sources'
     CSV_OUTPUT_DIR = 'output'
@@ -23,7 +23,7 @@ class IotApiPoller(Poller):
         if not os.path.isdir(home_dir):
             raise IsADirectoryError("Home directory entered: " + home_dir + " does not exist.")
 
-        super(IotApiPoller, self).__init__(polling_interval)
+        super(IotApiPoller, self).__init__()
 
         self.get_latest_only = get_latest_only
         self.check_files_each_poll = check_files
