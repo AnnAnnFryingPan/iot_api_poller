@@ -5,4 +5,4 @@ python-dateutil==2.6.1
 requests==2.18.4
 six==1.11.0
 tendo==0.2.8
-urllib3==1.22
+urllib3==1.26.5
